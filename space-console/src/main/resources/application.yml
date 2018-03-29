@@ -1,0 +1,6 @@
+#通用配置
+
+#默认环境
+spring:
+  profiles:
+    active: dev
