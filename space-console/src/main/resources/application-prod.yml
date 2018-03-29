@@ -1,5 +1,0 @@
-#生产环境配置
-
-image:
-  name: pic-prod
-  url: www.pic-prod
