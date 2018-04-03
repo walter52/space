@@ -17,7 +17,7 @@ CREATE TABLE `space_console_admin` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='space控制台系统管理员表';
 
 ### 系统管理员角色表
-CREATE TABLE `t_console_role` (
+CREATE TABLE `space_console_role` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL COMMENT '角色名称',
   `code` varchar(32) NOT NULL COMMENT '角色代码',
