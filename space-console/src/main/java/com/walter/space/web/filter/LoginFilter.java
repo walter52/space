@@ -39,7 +39,7 @@ public class LoginFilter implements Filter{
         ||uri.contains("/img/")
         ||uri.contains("pages")
         ||uri.contains("/plugins/")
-        || uri.contains("/login.html")){
+        ||uri.contains("/login.html")){
       filterChain.doFilter(servletRequest,servletResponse);
     }else{
       Admin loginAdmin =(Admin)httpServletRequest.getSession().getAttribute(Constants.LOGIN_ADMIN_SESSION_KEY);
