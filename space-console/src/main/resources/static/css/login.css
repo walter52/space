@@ -1,0 +1,22 @@
+
+body {
+    font-family: 'Microsoft YaHei', 微软雅黑, serif;
+}
+
+.login-box {
+    width: 480px;
+}
+
+.login-box-forget-password {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.validation-code-image {
+    width: 100px;
+    height: 34px;
+    cursor: pointer;
+}
