@@ -37,7 +37,7 @@ public class LoginFilter implements Filter{
     String uri = httpServletRequest.getRequestURI();
     if(uri.contains("/bower_components/")
         ||uri.contains("/img/")
-        ||uri.contains("pages")
+        ||uri.contains("/pages/")
         ||uri.contains("/js/")
         ||uri.contains("/css/")
         ||uri.contains("/plugins/")
