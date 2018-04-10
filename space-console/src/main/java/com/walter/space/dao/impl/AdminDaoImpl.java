@@ -19,9 +19,15 @@ public class AdminDaoImpl implements AdminDao {
 
   @Override
   public Admin selectAdminByEmail(String email) {
-    return entrityToModel(adminMapper.selectAdminByEmail(email));
+    return entityToModel(adminMapper.selectAdminByEmail(email));
   }
 
+  @Override
+  public void add(Admin admin) {
+    if(admin !=null){
+      adminMapper.add(modelToEntity(admin));
+    }
+  }
 
   /**
    * 数据库实例转为业务对象
@@ -29,12 +35,28 @@ public class AdminDaoImpl implements AdminDao {
    * @param adminEntity admin数据库实例
    * @return admin业务对象
    */
-  private Admin entrityToModel(AdminEntity adminEntity){
+  private Admin entityToModel(AdminEntity adminEntity){
     Admin admin = null;
     if(adminEntity!=null){
       admin = new Admin();
       BeanUtils.copyProperties(adminEntity,admin);
     }
     return admin;
+  }
+
+  /**
+   * 业务对象转为数据库实例
+   *
+   * @param admin admin业务对象
+   * @return admin数据库实例
+   */
+
+  private AdminEntity modelToEntity(Admin admin){
+    AdminEntity adminEntity = null;
+    if(admin !=null){
+      adminEntity = new AdminEntity();
+      BeanUtils.copyProperties(admin,adminEntity);
+    }
+    return adminEntity;
   }
 }

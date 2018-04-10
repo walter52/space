@@ -10,7 +10,6 @@ import java.util.Date;
  */
 public class Admin {
 
-  private Integer id; //id
   private String email;  //email
   private String password;  //密码
   private String name;  //姓名
@@ -23,13 +22,6 @@ public class Admin {
   private String lastChangedBy;  //最后修改人
   private String lastChangedOn;  //最后修改时间
 
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
 
   public String getEmail() {
     return email;

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,19 +22,23 @@ public abstract class BaseController {
 
   protected Logger LOG = LoggerFactory.getLogger(getClass());
 
+  @Autowired
+  HttpServletRequest request;
+
+
   @ResponseBody
   @ExceptionHandler(value = Exception.class)
-  public ResposeResult handleException(Exception e,HttpServletRequest request){
+  public ResposeResult handleException(Exception e, HttpServletRequest request) {
     ResposeResult resposeResult;
-    if(e instanceof ParamsException){
+    if (e instanceof ParamsException) {
       resposeResult = ResposeResult.error(ResponseCode.INVALID_PARAM);
-    }else if(e instanceof SignFailException){
+    } else if (e instanceof SignFailException) {
       resposeResult = ResposeResult.error(ResponseCode.SIGN_ERROR);
-    }else {
+    } else {
       resposeResult = ResposeResult.error(ResponseCode.FAILURE);
     }
     LOG.error("=====================");
-    LOG.error(request.getRequestURI(),e);
+    LOG.error(request.getRequestURI(), e);
     LOG.error("=====================");
     return resposeResult;
   }
