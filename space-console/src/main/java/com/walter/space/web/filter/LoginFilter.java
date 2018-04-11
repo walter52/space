@@ -41,7 +41,8 @@ public class LoginFilter implements Filter{
         ||uri.contains("/js/")
         ||uri.contains("/css/")
         ||uri.contains("/plugins/")
-        ||uri.contains("/login.html")){
+        ||uri.contains("/login.html")
+        ||uri.contains("/admin/login")){
       filterChain.doFilter(servletRequest,servletResponse);
     }else{
       Admin loginAdmin =(Admin)httpServletRequest.getSession().getAttribute(Constants.LOGIN_ADMIN_SESSION_KEY);
