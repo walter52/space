@@ -15,7 +15,6 @@ public class AdminController extends BaseController{
 
     @RequestMapping("/login")
     public ResposeResult login(LoginForm loginForm){
-      int a=0;
       return null;
     }
 
