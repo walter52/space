@@ -13,7 +13,7 @@ $(function () {
   var $forgetPassword = $loginForm.find("a[name=forgetPasswordBtn]");
 
   //从cookie中填充
-  var emailCookie = getCookieValue("wadc");
+  var emailCookie = getCookieValue("waem");
   if (emailCookie) {
     $email.val(emailCookie);
   }
