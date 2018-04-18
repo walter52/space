@@ -6,8 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * IP工具类
- * @author alanzhang
- * @date 2016年9月18日 下午6:01:36
  */
 public class IPUtils {
 

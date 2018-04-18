@@ -1,7 +1,8 @@
 package com.walter.space.util;
 
-import com.tcl.mibc.platform.api.exception.SignFailException;
 import java.util.List;
+
+import com.walter.space.web.exception.SignFailException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
