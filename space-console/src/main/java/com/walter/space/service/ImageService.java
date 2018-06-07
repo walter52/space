@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
  * @date 2018/03/29
  */
 @Service
-public class ImageService{
+public class ImageService {
+
   @Value("${image.name}")
   private String name;
   @Value("${image.url}")
   private String url;
 
-  public String getImage(){
-    return "image name:"+name+",url:"+url;
+  public String getImage() {
+    return "image name:" + name + ",url:" + url;
   }
 }

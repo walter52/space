@@ -15,7 +15,7 @@ public class AdminService {
 
 
   public void add(Admin admin) throws Exception {
-    String defaultPassword = admin.getEmail().substring(0,admin.getEmail().indexOf("@"));
+    String defaultPassword = admin.getEmail().substring(0, admin.getEmail().indexOf("@"));
     admin.setPassword(defaultPassword);
     adminDao.add(admin);
   }
