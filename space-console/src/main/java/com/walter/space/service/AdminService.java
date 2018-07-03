@@ -3,11 +3,13 @@ package com.walter.space.service;
 import com.walter.space.dao.AdminDao;
 import com.walter.space.model.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author walterwu
  * @date 2018/04/10
  */
+@Service
 public class AdminService {
 
   @Autowired

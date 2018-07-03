@@ -14,12 +14,12 @@ $(function () {
 
   //从cookie中填充
   var emailCookie = getCookieValue("waem");
-  if (emailCookie) {
+  if (emailCookie||"") {
     $email.val(emailCookie);
   }
 
   var passwordCookie = getCookieValue("wapd");
-  if (passwordCookie) {
+  if (passwordCookie||"") {
     $password.val(passwordCookie);
   }
 
@@ -92,10 +92,15 @@ $(function () {
         "useCookie": useCookie
       },
       "success": function (result) {
-        bootbox.alert("成功");
+        if(result.code == 0){
+          window.location.href = window.location.href.replace("login.html", "");
+        }else{
+          bootbox.alert(result.msg);
+        }
+
       },
       "error": function (result) {
-        bootbox.alert("失败");
+        bootbox.alert("网络错误！");
       }
     })
   });
