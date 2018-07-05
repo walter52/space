@@ -29,6 +29,6 @@ public class AdminService {
    * @return admin业务对象
    */
   public Admin selectAdminByEmail(String email) {
-    return null;
+    return adminDao.selectAdminByEmail(email);
   }
 }

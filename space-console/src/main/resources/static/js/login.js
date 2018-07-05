@@ -14,17 +14,17 @@ $(function () {
 
   //从cookie中填充
   var emailCookie = getCookieValue("waem");
-  if (emailCookie||"") {
+  if (emailCookie) {
     $email.val(emailCookie);
   }
 
   var passwordCookie = getCookieValue("wapd");
-  if (passwordCookie||"") {
+  if (passwordCookie) {
     $password.val(passwordCookie);
   }
 
   var useCookie = false;
-  if ($email && $password) {
+  if (emailCookie && passwordCookie) {
     useCookie = true;
   }
 
