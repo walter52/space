@@ -37,12 +37,8 @@ public class LoginFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         String uri = httpServletRequest.getRequestURI();
-        if (uri.contains("/bower_components/")
-            || uri.contains("/img/")
-            || uri.contains("/pages/")
-            || uri.contains("/js/")
-            || uri.contains("/css/")
-            || uri.contains("/plugins/")
+        if (uri.contains("/assets/")
+            || uri.contains("/page/")
             || uri.contains("/login.html")
             || uri.contains("/admin/login")) {
             filterChain.doFilter(servletRequest, servletResponse);
