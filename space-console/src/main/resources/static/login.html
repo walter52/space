@@ -16,7 +16,10 @@
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css"/>
   <link rel="stylesheet" href="assets/less/app.css">
-  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery-2.2.3.min.js"></script>
+  <script src="assets/js/amazeui.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="js/login.js"></script>
 
 </head>
 
@@ -28,10 +31,10 @@
       </div>
       <form class="am-form tpl-form-line-form">
         <div class="am-form-group">
-          <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入账号">
+          <input type="text" class="tpl-form-input" id="user-email" placeholder="请输入邮箱">
         </div>
         <div class="am-form-group">
-          <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码">
+          <input type="text" class="tpl-form-input" id="user-passwd" placeholder="请输入密码" >
         </div>
         <div class="am-form-group tpl-login-remember-me">
           <input id="remember-me" type="checkbox">
@@ -41,7 +44,7 @@
         </div>
 
         <div class="am-form-group">
-          <button type="button"
+          <button type="submit" id="login-submit"
                   class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">
             提交
           </button>
@@ -50,9 +53,6 @@
     </div>
   </div>
 </div>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
-
 </body>
 
 </html>
