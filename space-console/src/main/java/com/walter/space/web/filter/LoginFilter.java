@@ -40,7 +40,6 @@ public class LoginFilter implements Filter {
         if (uri.contains("/assets/")
             || uri.contains("/page/")
             || uri.contains("/js/")
-            || uri.contains("/login.html")
             || uri.contains("/admin/login")) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
