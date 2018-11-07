@@ -42,7 +42,7 @@ File: scss
 .preloader {
   width: 100%;
   height: 100%;
-  top: 0px;
+  top: 0;
   position: fixed;
   z-index: 99999;
   background: #fff; }
@@ -1542,7 +1542,7 @@ dropdown-item
 Custom-select
 ******************/
 .custom-select {
-  background: url(../../assets/images/custom-select.png) right 0.75rem center no-repeat; }
+  background: url(../images/custom-select.png) right 0.75rem center no-repeat; }
 
 /*******************
 textarea
@@ -2229,7 +2229,7 @@ Breadcrumb
   color: rgba(255, 255, 255, 0.4); }
 
 .breadcrumb {
-  margin-bottom: 0px; }
+  margin-bottom: 0; }
 
 /*============================================================== 
  Ui-bootstrap
@@ -4616,12 +4616,12 @@ Stylish tooltip
   margin: -7px 0 0 -15px;
   width: 30px;
   height: 20px;
-  background: url(../../assets/images/tooltip/tooltip1.svg) no-repeat center center;
+  background: url(../images/tooltip/tooltip1.svg) no-repeat center center;
   background-size: 100%; }
 
 .tooltip-content3 {
   position: absolute;
-  background: url(../../assets/images/tooltip/shape1.svg) no-repeat center bottom;
+  background: url(../images/tooltip/shape1.svg) no-repeat center bottom;
   background-size: 100% 100%;
   z-index: 9999;
   width: 200px;
@@ -4633,7 +4633,7 @@ Stylish tooltip
   color: #ffffff;
   opacity: 0;
   cursor: default;
-  font-size: 14;
+  font-size: 14px;
   line-height: 27px;
   pointer-events: none;
   -webkit-transform: scale3d(0.1, 0.2, 1);
@@ -4882,7 +4882,7 @@ Error Page
 .error-box {
   height: 100%;
   position: fixed;
-  background: url(../../assets/images/background/error-bg.jpg) no-repeat center center #fff;
+  background: url(../images/background/error-bg.jpg) no-repeat center center #fff;
   width: 100%; }
   .error-box .footer {
     width: 100%;
@@ -6069,7 +6069,7 @@ File: scss
 .vert .carousel-item-next,
 .vert .active.carousel-item-right {
   -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100% 0); }
+  transform: translate3d(0, 100%, 0); }
 
 .vert .carousel-item-prev,
 .vert .active.carousel-item-left {
@@ -6621,9 +6621,9 @@ File: scss
   ul.timeline:before {
     left: 40px; }
   ul.timeline > li > .timeline-panel {
-    width: "calc(100% - 90px)";
-    width: "calc(100% - 90px)";
-    width: "calc(100% - 90px)"; }
+    width: calc(100% - 90px);
+    width: calc(100% - 90px);
+    width: calc(100% - 90px); }
   ul.timeline > li > .timeline-badge {
     top: 16px;
     left: 15px;
