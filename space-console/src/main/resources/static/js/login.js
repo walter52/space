@@ -53,15 +53,18 @@ $("#userLoginBtn").click(function () {
     data: {
       loginEmail:$loginEmail.val(),
       loginPwd:$loginPassword.val(),
-      isRemember:$chkSignUp.val() == "on"
+      isRemember:$chkSignUp.prop("checked")
     },
     async: false,
     cache: false,
     success: function (result) {
       if (result.code == 200) {
-        localStorage.setItem("localEmail", result.data.email);
-        localStorage.setItem("localPwd", result.data.password);
-        alert("success");
+        if($chkSignUp.prop("checked")){
+          localStorage.setItem("localEmail", result.data.email);
+          localStorage.setItem("localPwd", result.data.password);
+        }
+        var a = window.location.href.replace("login.html", "");
+        window.location.href = a;
       } else {
         alert("fail");
       }

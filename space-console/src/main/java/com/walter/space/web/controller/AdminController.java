@@ -27,10 +27,11 @@ public class AdminController extends BaseController {
    *
    * @param loginEmail 登录邮箱
    * @param loginPwd 登录密码
+   * @param isRemember 记住密码
    * @return 登录结果
    */
   @RequestMapping("/login")
-  public ResposeResult login(String loginEmail, String loginPwd, String isRemember) {
+  public ResposeResult login(String loginEmail, String loginPwd, boolean isRemember) {
 
     if (StringUtils.isBlank(loginEmail) || StringUtils.isBlank(loginPwd)) {
       return ResposeResult.error("用户名或密码为空！");
@@ -41,7 +42,7 @@ public class AdminController extends BaseController {
         return ResposeResult.error("账户不存在！");
       }
 
-      if ("on".equals(isRemember)) {  //记住密码
+      if (isRemember) {  //记住密码
         if (!loginPwd.equals(admin.getPassword())) {
           return ResposeResult.error("密码错误！");
         }
