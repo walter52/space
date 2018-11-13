@@ -14,10 +14,7 @@ public class AdminEntity {
   private String email;  //email
   private String password;  //密码
   private String name;  //姓名
-  private RoleEntity role;  //角色
-  private String avatar;  //头像
   private String remark;  //备注
-  private String status;  //状态
   private String createdBy;  //创建人
   private Date createdOn;  //创建时间
   private String lastChangedBy;  //最后修改人
@@ -55,36 +52,12 @@ public class AdminEntity {
     this.name = name;
   }
 
-  public RoleEntity getRole() {
-    return role;
-  }
-
-  public void setRole(RoleEntity role) {
-    this.role = role;
-  }
-
-  public String getAvatar() {
-    return avatar;
-  }
-
-  public void setAvatar(String avatar) {
-    this.avatar = avatar;
-  }
-
   public String getRemark() {
     return remark;
   }
 
   public void setRemark(String remark) {
     this.remark = remark;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
   }
 
   public String getCreatedBy() {

@@ -4,7 +4,7 @@
 var $loginForm = $("#login-form");
 var $loginEmail = $loginForm.find("input[name=loginEmail]");
 var $loginPassword = $loginForm.find("input[name=loginPwd]");
-var $chkSignUp = $loginForm.find("input[name=chkSignIn]");
+var $chkSignUp = $loginForm.find("input[name=isRemember]");
 
 //初始化数据
 $(function () {
