@@ -39,8 +39,6 @@ $chkSignUp.click(function () {
       return;
     }
 
-    localStorage.setItem("localEmail", $loginEmail.val());
-    localStorage.setItem("localPwd", $loginPassword.val());
   } else {
     localStorage.removeItem("localEmail");
     localStorage.removeItem("localPwd");
@@ -49,16 +47,20 @@ $chkSignUp.click(function () {
 });
 
 $("#userLoginBtn").click(function () {
-  var loginFromData = new FormData($loginForm[0]);
   $.ajax({
     url: "admin/login",
     type: "POST",
-    data: loginFromData,
+    data: {
+      loginEmail:$loginEmail.val(),
+      loginPwd:$loginPassword.val(),
+      isRemember:$chkSignUp.val() == "on"
+    },
     async: false,
     cache: false,
-    processData : false,  //如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false
     success: function (result) {
-      if (result.status == 0) {
+      if (result.code == 200) {
+        localStorage.setItem("localEmail", result.data.email);
+        localStorage.setItem("localPwd", result.data.password);
         alert("success");
       } else {
         alert("fail");

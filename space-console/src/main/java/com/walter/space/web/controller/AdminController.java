@@ -35,9 +35,8 @@ public class AdminController extends BaseController {
     if (StringUtils.isBlank(loginEmail) || StringUtils.isBlank(loginPwd)) {
       return ResposeResult.error("用户名或密码为空！");
     }
-
+    Admin admin = adminService.selectAdminByEmail(loginEmail);
     try {
-      Admin admin = adminService.selectAdminByEmail(loginEmail);
       if (admin == null) {
         return ResposeResult.error("账户不存在！");
       }
@@ -60,7 +59,7 @@ public class AdminController extends BaseController {
       return ResposeResult.error("系统异常，请联系管理员");
     }
 
-    return ResposeResult.success("登录成功！");
+    return ResposeResult.success(admin);
   }
 
 

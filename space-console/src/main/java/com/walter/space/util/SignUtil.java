@@ -1,5 +1,6 @@
 package com.walter.space.util;
 
+import com.walter.space.util.EncryptUtils.EncryptType;
 import java.util.List;
 
 import com.walter.space.web.exception.SignFailException;
@@ -22,7 +23,7 @@ public class SignUtil {
       }
     }
     serverSign = serverSign + KEY;
-    serverSign = MD5Util.MD5Encode(serverSign, "UTF-8");
+    serverSign = EncryptUtils.encrypt(serverSign,EncryptType.MD5);
     if (!serverSign.equals(sign)) {
       logger.error("签名参数列表" + signName);
       throw new SignFailException("签名验证失败！！" + "[serverSign=" + serverSign + "]" + "[clientSign=" + sign

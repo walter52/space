@@ -5,7 +5,7 @@ package com.walter.space.web.result;
  * @date 2018/04/09
  */
 public enum ResponseCode {
-  SUCCESS(0,"Success"),
+  SUCCESS(200,"Success"),
   NOT_FOUND(404,"Not Found"),
   FAILURE(500,"Server Error"),
   INVALID_PARAM(601,"Invalid Param"),
