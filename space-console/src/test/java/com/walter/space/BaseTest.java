@@ -15,5 +15,4 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class BaseTest {
   protected final static Logger LOG = LoggerFactory.getLogger(BaseTest.class);
 
-
 }
