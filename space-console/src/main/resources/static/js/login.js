@@ -1,12 +1,13 @@
 /**
  * Created by walterwu on 2018/11/13.
  */
+var $loginForm = $("#login-form");
+var $loginEmail = $loginForm.find("input[name=loginEmail]");
+var $loginPassword = $loginForm.find("input[name=loginPwd]");
+var $chkSignUp = $loginForm.find("input[name=chkSignIn]");
 
+//初始化数据
 $(function () {
-  var $loginEmail = $("#login-email");
-  var $loginPassword = $("#login-password");
-  var $chkSignUp = $("#checkbox-signup");
-
   //查看本地存储信息的处理
   var localEmail = localStorage.getItem("localEmail");
   var localPwd = localStorage.getItem("localPwd");
@@ -17,33 +18,56 @@ $(function () {
     $loginPassword.val(localPwd);
   }
   if (localEmail && localPwd) {
-    $chkSignUp.prop("checked",true);
-  }else {
-    $chkSignUp.prop("checked",false);
+    $chkSignUp.prop("checked", true);
+  } else {
+    $chkSignUp.prop("checked", false);
   }
+});
 
-  //check状态触发
-  $chkSignUp.click(function () {
-    if ($(this).prop("checked")) {
-      if (!$loginEmail.val() || !$loginPassword.val()){
-        alert("信息不完整");
-        $chkSignUp.prop("checked",false);
-        return;
+//check状态触发
+$chkSignUp.click(function () {
+  if ($(this).prop("checked")) {
+    if (!$loginEmail.val() || !$loginPassword.val()) {
+      alert("信息不完整");
+      $chkSignUp.prop("checked", false);
+      return;
+    }
+
+    if (!isEmail($loginEmail.val())) {
+      alert("不是邮箱");
+      $chkSignUp.prop("checked", false);
+      return;
+    }
+
+    localStorage.setItem("localEmail", $loginEmail.val());
+    localStorage.setItem("localPwd", $loginPassword.val());
+  } else {
+    localStorage.removeItem("localEmail");
+    localStorage.removeItem("localPwd");
+    alert("取消记住");
+  }
+});
+
+$("#userLoginBtn").click(function () {
+  var loginFromData = new FormData($loginForm[0]);
+  $.ajax({
+    url: "admin/login",
+    type: "POST",
+    data: loginFromData,
+    async: false,
+    cache: false,
+    contentType : false,
+    processData : false,
+    success: function (result) {
+      if (result.status == 0) {
+        alert("success");
+      } else {
+        alert("fail");
       }
-
-      if (!isEmail($loginEmail.val())){
-        alert("不是邮箱");
-        $chkSignUp.prop("checked",false);
-        return;
-      }
-
-      localStorage.setItem("localEmail",$loginEmail.val());
-      localStorage.setItem("localPwd",$loginPassword.val());
-    } else {
-      localStorage.removeItem("localEmail");
-      localStorage.removeItem("localPwd");
-      alert("取消记住");
+    },
+    error: function () {
+      alert("fail");
     }
   });
-
 });
+

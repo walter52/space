@@ -44,23 +44,23 @@
        style="background-image:url(assets/images/background/login-register.jpg);">
     <div class="login-box card">
       <div class="card-body">
-        <form class="form-horizontal form-material" id="loginform" action="index.html">
+        <form class="form-horizontal form-material" id="login-form">
           <h3 class="box-title m-b-20">Sign In</h3>
           <div class="form-group ">
             <div class="col-xs-12">
-              <input class="form-control" type="email" required="required" id="login-email"
+              <input class="form-control" type="email" required="required" name="loginEmail"
                      placeholder="Email"></div>
           </div>
           <div class="form-group">
             <div class="col-xs-12">
-              <input class="form-control" type="password" required="required" id="login-password"
+              <input class="form-control" type="password" required="required" name="loginPwd"
                      placeholder="Password"></div>
           </div>
           <div class="form-group">
             <div class="col-md-12">
               <div class="checkbox checkbox-primary pull-left p-t-0">
-                <input id="checkbox-signup" type="checkbox">
-                <label for="checkbox-signup"> Remember me </label>
+                <input id="checkbox-sign-in" name="chkSignIn" type="checkbox">
+                <label for="checkbox-sign-in"> Remember me </label>
               </div>
               <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i
                   class="fa fa-lock m-r-5"></i> Forgot pwd?</a></div>
@@ -68,7 +68,7 @@
           <div class="form-group text-center m-t-20">
             <div class="col-xs-12">
               <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
-                      type="submit">Log In
+                       id="userLoginBtn">Log In
               </button>
             </div>
           </div>
@@ -133,7 +133,7 @@
 <!--Menu sidebar -->
 <script src="assets/js/sidebarmenu.js"></script>
 <!--stickey kit -->
-<script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<!--<script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>-->
 <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!--Custom JavaScript -->
 <script src="assets/js/custom.min.js"></script>

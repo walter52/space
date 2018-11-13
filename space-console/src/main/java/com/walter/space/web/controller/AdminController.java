@@ -30,8 +30,10 @@ public class AdminController extends BaseController {
   private int cookieMaxAge;
 
   @RequestMapping("/login")
-  public ResposeResult login(LoginForm loginForm) {
+  public ResposeResult login(String loginEmail,String loginPwd) {
     ResposeResult resposeResult;
+
+    LoginForm loginForm = new LoginForm();
     try {
       Admin admin = adminService.selectAdminByEmail(loginForm.getEmail());
       if (loginForm.getUseCookie()) {
