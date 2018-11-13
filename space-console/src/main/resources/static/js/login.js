@@ -56,8 +56,7 @@ $("#userLoginBtn").click(function () {
     data: loginFromData,
     async: false,
     cache: false,
-    contentType : false,
-    processData : false,
+    processData : false,  //如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false
     success: function (result) {
       if (result.status == 0) {
         alert("success");

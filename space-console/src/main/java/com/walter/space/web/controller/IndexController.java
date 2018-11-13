@@ -12,7 +12,8 @@ public class IndexController {
 
   @RequestMapping("/")
   public String index(){
-    return "forward:/login.html";
+    System.out.println("123");
+    return "forward:/index.html";
   }
 
 }
