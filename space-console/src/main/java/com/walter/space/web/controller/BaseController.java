@@ -24,8 +24,6 @@ public abstract class BaseController {
 
   @Autowired
   HttpServletRequest request;
-  @Autowired
-  HttpServletResponse response;
 
 
   @ResponseBody

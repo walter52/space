@@ -63,14 +63,14 @@ $("#userLoginBtn").click(function () {
           localStorage.setItem("localEmail", result.data.email);
           localStorage.setItem("localPwd", result.data.password);
         }
-        var a = window.location.href.replace("login.html", "");
-        window.location.href = a;
+        window.location.href.replace("login.html", "");
+        window.location.href = "http://127.0.0.1:8080/console/"
       } else {
         alert("fail");
       }
     },
     error: function () {
-      alert("fail");
+      alert("errOr fail");
     }
   });
 });

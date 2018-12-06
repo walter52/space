@@ -1,4 +1,4 @@
-package com.walter.space.walter;
+package com.walter.space.walter.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
