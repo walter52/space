@@ -63,5 +63,19 @@ public class AdminController extends BaseController {
     return ResposeResult.success(admin);
   }
 
+  /**
+   * 注销登录接口
+   */
+  @RequestMapping("/logout")
+  public ResposeResult logout() {
+    try {
+      request.getSession().setAttribute(Constants.LOGIN_ADMIN_SESSION_KEY, null);
+    } catch (Exception e) {
+      LOG.error("登出失败", e);
+      return ResposeResult.error("登出失败！");
+    }
+    return ResposeResult.success("登出成功！", request.getContextPath() + "/login.html");
+  }
+
 
 }

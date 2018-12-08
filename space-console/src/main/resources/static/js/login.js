@@ -46,27 +46,27 @@ $chkSignUp.click(function () {
   }
 });
 
-$("#userLoginBtn").click(function () {
+//登录
+$("#user-login-btn").click(function () {
   $.ajax({
     url: "admin/login",
     type: "POST",
     data: {
-      loginEmail:$loginEmail.val(),
-      loginPwd:$loginPassword.val(),
-      isRemember:$chkSignUp.prop("checked")
+      loginEmail: $loginEmail.val(),
+      loginPwd: $loginPassword.val(),
+      isRemember: $chkSignUp.prop("checked")
     },
     async: false,
     cache: false,
     success: function (result) {
-      if (result.code == 200) {
-        if($chkSignUp.prop("checked")){
+      if (result.code === 200) {
+        if ($chkSignUp.prop("checked")) {
           localStorage.setItem("localEmail", result.data.email);
           localStorage.setItem("localPwd", result.data.password);
         }
-        window.location.href.replace("login.html", "");
-        window.location.href = "http://127.0.0.1:8080/console/"
+        window.location.href = window.location.href.replace("login.html", "");
       } else {
-        alert("fail");
+        alert(result.msg);
       }
     },
     error: function () {

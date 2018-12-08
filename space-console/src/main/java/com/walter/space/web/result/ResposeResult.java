@@ -24,8 +24,9 @@ public class ResposeResult {
   public static ResposeResult success(Object data) {
     return new ResposeResult(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), data);
   }
-  public static ResposeResult success(String msg){
-    return new ResposeResult(ResponseCode.SUCCESS.getCode(), msg,null);
+
+  public static ResposeResult success(String msg, Object data) {
+    return new ResposeResult(ResponseCode.SUCCESS.getCode(), msg, data);
   }
 
   public static ResposeResult error(String msg) {
