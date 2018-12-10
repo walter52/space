@@ -5,6 +5,7 @@ var $loginForm = $("#login-form");
 var $loginEmail = $loginForm.find("input[name=loginEmail]");
 var $loginPassword = $loginForm.find("input[name=loginPwd]");
 var $chkSignUp = $loginForm.find("input[name=isRemember]");
+var isRemember = false;
 
 //初始化数据
 $(function () {
@@ -19,8 +20,10 @@ $(function () {
   }
   if (localEmail && localPwd) {
     $chkSignUp.prop("checked", true);
+    isRemember = true;
   } else {
     $chkSignUp.prop("checked", false);
+    isRemember = false;
   }
 });
 
@@ -42,19 +45,23 @@ $chkSignUp.click(function () {
   } else {
     localStorage.removeItem("localEmail");
     localStorage.removeItem("localPwd");
+    $loginEmail.val("");
+    $loginPassword.val("");
+    isRemember = false;
     alert("取消记住");
   }
 });
 
 //登录
 $("#user-login-btn").click(function () {
+ /
   $.ajax({
     url: "admin/login",
     type: "POST",
     data: {
       loginEmail: $loginEmail.val(),
       loginPwd: $loginPassword.val(),
-      isRemember: $chkSignUp.prop("checked")
+      isRemember: isRemember
     },
     async: false,
     cache: false,
@@ -75,3 +82,11 @@ $("#user-login-btn").click(function () {
   });
 });
 
+function checkLoginEmail() {
+  if (!$loginEmail.val()) {
+    $loginEmail.popover("show")
+  }
+  if (!isEmail($loginEmail.val())){
+
+  }
+}
