@@ -25,6 +25,22 @@ $(function () {
     $chkSignUp.prop("checked", false);
     isRemember = false;
   }
+
+  //初始化弹出窗
+  $loginEmail.popover({
+    content: "<div class='red' id='popover-content-email'></div>",
+    html: true,
+    trigger:"manual",
+    animation: true
+  });
+  $loginPassword.popover({
+    content: "<div class='red' id='popover-content-pwd'></div>",
+    html: true,
+    trigger:"manual",
+    animation: true
+  });
+
+
 });
 
 //check状态触发
@@ -88,19 +104,13 @@ function checkLoginEmail() {
   if (!$loginEmail.val()) {
     $loginEmail.parent().addClass("has-error");
     $loginEmail.focus();
-    $loginEmail.popover({
-      content: "<div class='red'>Email不能为空！</div>",
-      html: true,
-      animation: true
-    }).popover("show");
+    $loginEmail.popover("show");
+    $("#popover-content-email").text("Email不能为空");
   }else if (!isEmail($loginEmail.val())){
     $loginEmail.parent().addClass("has-error");
     $loginEmail.focus();
-    $loginEmail.popover({
-      content: "<div class='red'>Email无效！</div>",
-      html: true,
-      animation: true
-    }).popover("show");
+    $loginEmail.popover("show");
+    $("#popover-content-email").text("Email格式错误");
   }else {
     $loginEmail.popover("hide");
     $loginEmail.parent().removeClass("has-error");
