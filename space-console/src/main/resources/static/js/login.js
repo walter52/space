@@ -30,18 +30,20 @@ $(function () {
 //check状态触发
 $chkSignUp.click(function () {
   if ($(this).prop("checked")) {
-    if (!$loginEmail.val() || !$loginPassword.val()) {
-      alert("信息不完整");
+    // if (!$loginEmail.val() || !$loginPassword.val()) {
+    //   alert("信息不完整");
+    //   $chkSignUp.prop("checked", false);
+    //   return;
+    // }
+    //
+    // if (!isEmail($loginEmail.val())) {
+    //   alert("不是邮箱");
+    //   $chkSignUp.prop("checked", false);
+    //   return;
+    // }
+    if (!checkLoginEmail()){
       $chkSignUp.prop("checked", false);
-      return;
     }
-
-    if (!isEmail($loginEmail.val())) {
-      alert("不是邮箱");
-      $chkSignUp.prop("checked", false);
-      return;
-    }
-
   } else {
     localStorage.removeItem("localEmail");
     localStorage.removeItem("localPwd");
@@ -54,7 +56,6 @@ $chkSignUp.click(function () {
 
 //登录
 $("#user-login-btn").click(function () {
- /
   $.ajax({
     url: "admin/login",
     type: "POST",
@@ -83,10 +84,28 @@ $("#user-login-btn").click(function () {
 });
 
 function checkLoginEmail() {
+  var res = false;
   if (!$loginEmail.val()) {
-    $loginEmail.popover("show")
+    $loginEmail.parent().addClass("has-error");
+    $loginEmail.focus();
+    $loginEmail.popover({
+      content: "<div class='red'>Email不能为空！</div>",
+      html: true,
+      animation: true
+    }).popover("show");
+  }else if (!isEmail($loginEmail.val())){
+    $loginEmail.parent().addClass("has-error");
+    $loginEmail.focus();
+    $loginEmail.popover({
+      content: "<div class='red'>Email无效！</div>",
+      html: true,
+      animation: true
+    }).popover("show");
+  }else {
+    $loginEmail.popover("hide");
+    $loginEmail.parent().removeClass("has-error");
+    res = true
   }
-  if (!isEmail($loginEmail.val())){
-
-  }
+  return res;
 }
+
