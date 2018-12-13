@@ -43,7 +43,7 @@
        style="background-image:url(assets/images/background/login-register.jpg);">
     <div class="login-box card">
       <div class="card-body">
-        <form class="form-horizontal form-material" id="login-form">
+        <form class="form-horizontal form-material" id="loginform">
           <h3 class="box-title m-b-20">Sign In</h3>
           <div class="form-group ">
             <div class="col-xs-12">
@@ -53,7 +53,7 @@
           <div class="form-group">
             <div class="col-xs-12">
               <input class="form-control" type="password" name="loginPwd" placeholder="Password"
-                     data-toggle="popover" data-trigger="focus" ></div>
+                     data-toggle="popover" data-trigger="focus"></div>
           </div>
           <div class="form-group">
             <div class="col-md-12">
@@ -100,7 +100,9 @@
           </div>
           <div class="form-group ">
             <div class="col-xs-12">
-              <input class="form-control" type="text" required="" placeholder="Email"></div>
+              <input class="form-control" type="email" name="recoverEmail" placeholder="Email"
+                     data-toggle="popover" data-trigger="focus">
+            </div>
           </div>
           <div class="form-group text-center m-t-20">
             <div class="col-xs-12">
@@ -136,7 +138,7 @@
 <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
 <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!--Custom JavaScript -->
-<script src="assets/js/custom.min.js"></script>
+<script src="assets/js/custom.js"></script>
 <script src="js/login.js"></script>
 <script src="js/common.js"></script>
 <!-- ============================================================== -->

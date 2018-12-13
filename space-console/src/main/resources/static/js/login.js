@@ -1,7 +1,7 @@
 /**
  * Created by walterwu on 2018/11/13.
  */
-var $loginForm = $("#login-form");
+var $loginForm = $("#loginform");
 var $loginEmail = $loginForm.find("input[name=loginEmail]");
 var $loginPassword = $loginForm.find("input[name=loginPwd]");
 var $chkSignUp = $loginForm.find("input[name=isRemember]");
