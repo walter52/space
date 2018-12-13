@@ -30,35 +30,28 @@ $(function () {
   $loginEmail.popover({
     content: "<div class='red' id='popover-content-email'></div>",
     html: true,
-    trigger:"manual",
+    trigger: "manual",
     animation: true
   });
   $loginPassword.popover({
     content: "<div class='red' id='popover-content-pwd'></div>",
     html: true,
-    trigger:"manual",
+    trigger: "manual",
     animation: true
   });
-
 
 });
 
 //check状态触发
 $chkSignUp.click(function () {
   if ($(this).prop("checked")) {
-    // if (!$loginEmail.val() || !$loginPassword.val()) {
-    //   alert("信息不完整");
-    //   $chkSignUp.prop("checked", false);
-    //   return;
-    // }
-    //
-    // if (!isEmail($loginEmail.val())) {
-    //   alert("不是邮箱");
-    //   $chkSignUp.prop("checked", false);
-    //   return;
-    // }
-    if (!checkLoginEmail()){
+    if (!checkLoginEmail()) {
       $chkSignUp.prop("checked", false);
+      return;
+    }
+    if (!checkLoginPwd()) {
+      $chkSignUp.prop("checked", false);
+      return;
     }
   } else {
     localStorage.removeItem("localEmail");
@@ -66,7 +59,6 @@ $chkSignUp.click(function () {
     $loginEmail.val("");
     $loginPassword.val("");
     isRemember = false;
-    alert("取消记住");
   }
 });
 
@@ -99,23 +91,39 @@ $("#user-login-btn").click(function () {
   });
 });
 
+//监听表单
+$("[data-toggle='popover']").click(function () {
+  $loginEmail.popover("hide");
+  $loginPassword.popover("hide");
+});
+
 function checkLoginEmail() {
   var res = false;
   if (!$loginEmail.val()) {
-    $loginEmail.parent().addClass("has-error");
     $loginEmail.focus();
     $loginEmail.popover("show");
-    $("#popover-content-email").text("Email不能为空");
-  }else if (!isEmail($loginEmail.val())){
-    $loginEmail.parent().addClass("has-error");
+    $("#popover-content-email").text("Email不能为空！");
+  } else if (!isEmail($loginEmail.val())) {
     $loginEmail.focus();
     $loginEmail.popover("show");
-    $("#popover-content-email").text("Email格式错误");
-  }else {
+    $("#popover-content-email").text("Email格式错误！");
+  } else {
     $loginEmail.popover("hide");
-    $loginEmail.parent().removeClass("has-error");
     res = true
   }
   return res;
+}
+
+function checkLoginPwd() {
+  var res = false;
+  if (!$loginPassword.val()) {
+    $loginPassword.focus();
+    $loginPassword.popover("show");
+    $("#popover-content-pwd").text("密码不能为空！");
+  }else {
+    $loginPassword.popover("hide");
+    res = true;
+  }
+  return res
 }
 
