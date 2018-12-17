@@ -97,6 +97,13 @@ $("[data-toggle='popover']").click(function () {
   $loginPassword.popover("hide");
 });
 
+//监听回车
+$("body").keydown(function (e) {
+  if(e.keyCode == 13){
+    $("#user-login-btn").trigger("click");
+  }
+});
+
 function checkLoginEmail() {
   var res = false;
   if (!$loginEmail.val()) {

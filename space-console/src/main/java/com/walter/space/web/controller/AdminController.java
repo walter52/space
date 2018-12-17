@@ -77,5 +77,19 @@ public class AdminController extends BaseController {
     return ResposeResult.success("登出成功！", request.getContextPath() + "/login.html");
   }
 
+  /**
+   * 注册接口
+   * @param registerName 注册名称
+   * @param registerEmail 注册邮箱
+   * @param registerPwd 注册密码
+   */
+  @RequestMapping("/register")
+  public ResposeResult register(String registerName, String registerEmail, String registerPwd) {
+    if (StringUtils.isBlank(registerName) || StringUtils.isBlank(registerEmail) || StringUtils
+        .isBlank(registerPwd)) {
+      return ResposeResult.error("注册信息不完整！");
+    }
+    return null;
+  }
 
 }
