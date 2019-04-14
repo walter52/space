@@ -3,7 +3,7 @@ COPY ./pom.xml /build/
 COPY ./settings.xml /usr/share/maven/ref/
 COPY ./space-console/src /build/space-console/src/
 COPY ./space-console/pom.xml /build/space-console/
-RUN mvn -B -f /build/pom.xml  && mvn clean package -Dmaven.test.skip=true
+RUN mvn -B -f /build/pom.xml -s /usr/share/maven/ref/settings.xml dependency:resolve && mvn clean package -Dmaven.test.skip=true
 
 FROM openjdk:8-jre-alpine
 COPY --from=builder space-console/target/*.jar ROOT.jar
