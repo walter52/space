@@ -6,5 +6,5 @@ COPY ./space-console/pom.xml /build/space-console/
 RUN mvn -B -f /build/pom.xml -s /usr/share/maven/ref/settings.xml dependency:resolve && mvn clean package -Dmaven.test.skip=true
 
 FROM openjdk:8-jre-alpine
-COPY --from=builder space-console/target/*.jar ROOT.jar
+COPY --from=builder /build/space-console/target/*.jar ROOT.jar
 CMD ["java", "-jar", "ROOT.jar"]
