@@ -2,20 +2,14 @@ package com.walter.space.web.filter;
 
 import com.walter.space.constants.Constants;
 import com.walter.space.model.Admin;
-
-import java.io.IOException;
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 登录过滤器
@@ -50,7 +44,7 @@ public class LoginFilter implements Filter {
             if (loginAdmin != null) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-                String loginUrl = httpServletRequest.getContextPath() + "/login.html";
+                String loginUrl = "http://"+httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath() + "/login.html";
                 // 处理Ajax请求
                 if (httpServletRequest.getHeader("x-requested-with") != null
                     && "XMLHttpRequest".equalsIgnoreCase(httpServletRequest.getHeader("x-requested-with"))) {
