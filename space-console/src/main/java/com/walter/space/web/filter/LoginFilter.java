@@ -44,7 +44,6 @@ public class LoginFilter implements Filter {
             if (loginAdmin != null) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-//                String loginUrl = "http://"+httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath() + "/login.html";
                 String loginUrl = httpServletRequest.getContextPath() + "/login.html";
                 // 处理Ajax请求
                 if (httpServletRequest.getHeader("x-requested-with") != null
