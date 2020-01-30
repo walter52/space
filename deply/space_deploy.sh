@@ -25,11 +25,11 @@ existContainer=(`docker ps -a | grep "${dockerName}"`)
 if [ -n "$existContainer" ]; then
     docker stop $dockerName
     docker container rm $dockerName
-    existImages=(`docker images | grep "none" | awk '{print $3}'`)
+    existImages=(`docker images | grep "  none" | awk '{print $3}'`)
     if [ -n "$existImages" ]; then
         docker rmi $existImages
     fi
 
 fi
-docker run -d -p 8080:8080 --restart always --privileged=true --name $dockerName  $dockerInfo
+docker run -d -p 8080:8080 --restart always --privileged=true --name $dockerName -v=/data:/data $dockerInfo
 
