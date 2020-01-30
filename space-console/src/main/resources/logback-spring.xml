@@ -8,80 +8,80 @@
 	    </encoder>
 	  </appender>
 	  
-<!--    <appender name="debugLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>/data/logs/space/debug/debug.log</file>-->
-<!--        <append>true</append>-->
-<!--        <encoder>-->
-<!--            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>-->
-<!--        </encoder>-->
-<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
-<!--            <level>DEBUG</level>-->
-<!--            <onMatch>ACCEPT</onMatch>-->
-<!--            <onMismatch>DENY</onMismatch>-->
-<!--        </filter>-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>/data/logs/space/debug/debug.log.%d{yyyy-MM-dd}</fileNamePattern>-->
-<!--            <maxHistory>15</maxHistory>-->
-<!--        </rollingPolicy>-->
-<!--    </appender>-->
+    <appender name="debugLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/logs/space/debug/debug.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/data/logs/webapps/space/debug/debug.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+    </appender>
 
-<!--    <appender name="infoLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>/data/logs/space/info/info.log</file>-->
-<!--        <append>true</append>-->
-<!--        <encoder>-->
-<!--            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>-->
-<!--        </encoder>-->
-<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
-<!--            <level>INFO</level>-->
-<!--        </filter>-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>/data/logs/space/info/info.log.%d{yyyy-MM-dd}</fileNamePattern>-->
-<!--            <maxHistory>15</maxHistory>-->
-<!--        </rollingPolicy>-->
-<!--    </appender>-->
+    <appender name="infoLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/logs/space/info/info.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/data/logs/space/info/info.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+    </appender>
 
-<!--    <appender name="warnLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>/data/logs/space/warn/warn.log</file>-->
-<!--        <append>true</append>-->
-<!--        <encoder>-->
-<!--            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>-->
-<!--        </encoder>-->
-<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
-<!--            <level>WARN</level>-->
-<!--            <onMatch>ACCEPT</onMatch>-->
-<!--            <onMismatch>DENY</onMismatch>-->
-<!--        </filter>-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>/data/logs/space/warn/warn.log.%d{yyyy-MM-dd}</fileNamePattern>-->
-<!--            <maxHistory>15</maxHistory>-->
-<!--        </rollingPolicy>-->
-<!--    </appender>-->
+    <appender name="warnLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/logs/space/warn/warn.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/data/logs/space/warn/warn.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+    </appender>
 
-<!--    <appender name="errorLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>/data/logs/space/error/error.log</file>-->
-<!--        <append>true</append>-->
-<!--        <encoder>-->
-<!--            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>-->
-<!--        </encoder>-->
-<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
-<!--            <level>ERROR</level>-->
-<!--            <onMatch>ACCEPT</onMatch>-->
-<!--            <onMismatch>DENY</onMismatch>-->
-<!--        </filter>-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>/data/logs/space/error/error.log.%d{yyyy-MM-dd}</fileNamePattern>-->
-<!--            <maxHistory>15</maxHistory>-->
-<!--        </rollingPolicy>-->
-<!--    </appender>-->
+    <appender name="errorLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/logs/space/error/error.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/data/logs/space/error/error.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+    </appender>
 
     
     <logger name="org.springframework.web" level="INFO"/>
     <root level="INFO">
         <appender-ref ref="consoleinfo"/>
-<!--        <appender-ref ref="debugLogAppender"/>-->
-<!--        <appender-ref ref="infoLogAppender"/>-->
-<!--        <appender-ref ref="warnLogAppender"/>-->
-<!--        <appender-ref ref="errorLogAppender"/>-->
+        <appender-ref ref="debugLogAppender"/>
+        <appender-ref ref="infoLogAppender"/>
+        <appender-ref ref="warnLogAppender"/>
+        <appender-ref ref="errorLogAppender"/>
     </root>
 
 </configuration>
