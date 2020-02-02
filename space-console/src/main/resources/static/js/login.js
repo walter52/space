@@ -80,7 +80,8 @@ $("#user-login-btn").click(function () {
           localStorage.setItem("localEmail", result.data.email);
           localStorage.setItem("localPwd", result.data.password);
         }
-        window.location.href = window.location.href.replace("login.html", "");
+        // window.location.href = window.location.href.replace("login.html", "");
+        window.location.href = "/console/pages/workbench.html";
       } else {
         alert(result.msg);
       }

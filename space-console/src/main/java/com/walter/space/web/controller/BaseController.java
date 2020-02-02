@@ -4,13 +4,14 @@ import com.walter.space.web.exception.ParamsException;
 import com.walter.space.web.exception.SignFailException;
 import com.walter.space.web.result.ResponseCode;
 import com.walter.space.web.result.ResposeResult;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 统一处理接口异常
@@ -24,6 +25,9 @@ public abstract class BaseController {
 
   @Autowired
   HttpServletRequest request;
+
+  @Autowired
+  HttpServletResponse response;
 
 
   @ResponseBody
