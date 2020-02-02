@@ -1,0 +1,27 @@
+#开发环境配置
+server:
+  port: 8080
+
+spring:
+  datasource:
+
+    #数据库配置(必配)
+    url: jdbc:mysql://192.168.1.111:3306/space?useUnicode=true&autoReconnect=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: root
+    password: kgdiyniqmq
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    #druid配置
+    druid:
+      filters: stat
+      max-active: 20
+      initial-size: 5
+      max-wait: 5000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-return: false
+      pool-prepared-statements: false
+      max-open-prepared-statements: -1
