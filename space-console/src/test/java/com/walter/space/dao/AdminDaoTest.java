@@ -13,6 +13,7 @@ public class AdminDaoTest extends BaseTest{
   private AdminDao adminDao;
   @Test
   public void testGetAdmin(){
-//    adminDao.selectAdminByEmail("walter52@sohu.com");
+    adminDao.selectAdminByEmail("walter52@sohu.com");
   }
+
 }

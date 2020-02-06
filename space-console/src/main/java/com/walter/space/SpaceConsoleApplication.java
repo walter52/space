@@ -1,18 +1,19 @@
 package com.walter.space;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy(exposeProxy = true)
+@Slf4j
 public class SpaceConsoleApplication {
-	private static final Logger LOG = LoggerFactory.getLogger(SpaceConsoleApplication.class);
 
 	public static void main(String[] args) {
 
-		LOG.info("**********spring boot starting**********");
+		log.info("**********spring boot starting**********");
 		SpringApplication.run(SpaceConsoleApplication.class, args);
-		LOG.info("**********spring boot success**********");
+		log.info("**********spring boot success**********");
 	}
 }

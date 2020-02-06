@@ -1,5 +1,7 @@
 package com.walter.space.dao.entity;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -8,87 +10,53 @@ import java.util.Date;
  * @author walterwu
  * @date 2018/04/01
  */
+
+@Data
 public class AdminEntity {
 
-  private Integer id; //id
-  private String email;  //email
-  private String password;  //密码
-  private String name;  //姓名
-  private String remark;  //备注
-  private String createdBy;  //创建人
-  private Date createdOn;  //创建时间
-  private String lastChangedBy;  //最后修改人
-  private String lastChangedOn;  //最后修改时间
+  /**
+   * id
+   */
+  private Integer id;
 
-  public Integer getId() {
-    return id;
-  }
+  /**
+   * email
+   */
+  private String email;
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+  /**
+   * 密码
+   */
+  private String password;
 
-  public String getEmail() {
-    return email;
-  }
+  /**
+   * 姓名
+   */
+  private String name;
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+  /**
+   * 备注
+   */
+  private String remark;
 
-  public String getPassword() {
-    return password;
-  }
+  /**
+   * 创建人
+   */
+  private String createdBy;
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+  /**
+   * id
+   */
+  private Date createdOn;
 
-  public String getName() {
-    return name;
-  }
+  /**
+   * 修改人
+   */
+  private String lastChangedBy;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+  /**
+   * 修改时间
+   */
+  private String lastChangedOn;
 
-  public String getRemark() {
-    return remark;
-  }
-
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public Date getCreatedOn() {
-    return createdOn;
-  }
-
-  public void setCreatedOn(Date createdOn) {
-    this.createdOn = createdOn;
-  }
-
-  public String getLastChangedBy() {
-    return lastChangedBy;
-  }
-
-  public void setLastChangedBy(String lastChangedBy) {
-    this.lastChangedBy = lastChangedBy;
-  }
-
-  public String getLastChangedOn() {
-    return lastChangedOn;
-  }
-
-  public void setLastChangedOn(String lastChangedOn) {
-    this.lastChangedOn = lastChangedOn;
-  }
 }

@@ -24,6 +24,8 @@
     <lang3.version>3.7</lang3.version>
     <codec.version>1.11</codec.version>
     <io.version>2.6</io.version>
+    <aspectj.version>1.9.2</aspectj.version>
+    <lombok.version>1.18.10</lombok.version>
   </properties>
 
   <dependencyManagement>
@@ -71,6 +73,26 @@
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>${io.version}</version>
+      </dependency>
+
+      <!--aop-->
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>${aspectj.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>${aspectj.version}</version>
+      </dependency>
+
+      <!--lombok-->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
       </dependency>
 
       <!--测试-->
