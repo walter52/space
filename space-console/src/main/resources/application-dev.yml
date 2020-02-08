@@ -25,3 +25,8 @@ spring:
       test-on-return: false
       pool-prepared-statements: false
       max-open-prepared-statements: -1
+
+logging:
+  level:
+    #日志级别
+    com.walter.space.console.dao: debug
