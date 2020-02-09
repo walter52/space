@@ -1,0 +1,11 @@
+#开发环境配置
+server:
+  port: 1001
+
+#eureka配置
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
