@@ -1,0 +1,18 @@
+#通用配置
+#默认环境
+spring:
+  profiles:
+    active: dev
+  application:
+    name: space-usercenter
+
+#server属性(spring boot2.0属性名新增servlet)
+server:
+  servlet:
+    context-path: /usercenter
+
+
+#mybatis 将数据库字段名映射为java驼峰格式
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

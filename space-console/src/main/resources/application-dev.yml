@@ -4,13 +4,11 @@ server:
 
 spring:
   datasource:
-
     #数据库配置(必配)
     url: jdbc:mysql://192.168.1.111:3306/space?useUnicode=true&autoReconnect=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
     username: root
     password: kgdiyniqmq
     type: com.alibaba.druid.pool.DruidDataSource
-
     #druid配置
     druid:
       filters: stat
@@ -32,7 +30,6 @@ logging:
     com.walter.space.console.dao: debug
 
 #eureka
-
 eureka:
   client:
     service-url:
