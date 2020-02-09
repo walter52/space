@@ -3,7 +3,8 @@
 spring:
   profiles:
     active: dev
-
+  application:
+    name: space-console
 
 #server属性(spring boot2.0属性名新增servlet)
 server:

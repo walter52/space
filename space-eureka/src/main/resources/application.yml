@@ -3,13 +3,14 @@
 spring:
   profiles:
     active: dev
-
+  application:
+    name: space-eureka
 
 
 #server属性(spring boot2.0属性名新增servlet)
 server:
   servlet:
-    context-path: /eureka
+    context-path: /eurekaServer
 
 
 
