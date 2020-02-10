@@ -1,0 +1,10 @@
+#开发环境配置
+server:
+  port: 8082
+
+
+#eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eurekaServer/eureka

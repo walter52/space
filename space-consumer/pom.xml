@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>space-usercenter</artifactId>
+    <artifactId>space-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>space-usercenter</name>
-    <description>User Center for Space</description>
+    <name>space-consumer</name>
+    <description>Demo project for Spring Boot</description>
 
     <parent>
         <groupId>com.walter.space</groupId>
@@ -36,6 +36,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
     </dependencies>
