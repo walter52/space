@@ -1,6 +1,7 @@
 package com.walter.space.spaceconsumer.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -14,6 +15,7 @@ public interface UserCenterFeign {
     String dc();
 }
 
+@Component
 class UserCenterFeignFallback implements UserCenterFeign {
     @Override
     public String dc() {

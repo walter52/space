@@ -1,6 +1,5 @@
 package com.walter.space.spaceconsumer.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.walter.space.spaceconsumer.feign.UserCenterFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ class  DcService{
     @Autowired
     private UserCenterFeign userCenterFeign;
 
-    @HystrixCommand(fallbackMethod = "fallback")
+//    @HystrixCommand(fallbackMethod = "fallback")
     public String toDc(){
         return userCenterFeign.dc();
     }
