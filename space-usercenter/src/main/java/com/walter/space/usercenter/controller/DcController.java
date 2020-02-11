@@ -18,7 +18,7 @@ public class DcController {
     @GetMapping("/dc")
     public String dc() throws Exception{
         String service = discoveryClient.getServices().toString();
-        Thread.sleep(5000L);
+//        Thread.sleep(5000L);
         return service;
     }
 }

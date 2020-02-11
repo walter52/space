@@ -1,6 +1,6 @@
-package com.walter.space.spaceconsumer.controller;
+package com.walter.space.consumer.controller;
 
-import com.walter.space.spaceconsumer.feign.UserCenterFeign;
+import com.walter.space.consumer.feign.UserCenterFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,0 +1,28 @@
+#通用配置
+#默认环境
+spring:
+  profiles:
+    active: dev
+  application:
+    name: space-gateway
+
+#server属性(spring boot2.0属性名新增servlet)
+#server:
+#  servlet:
+#    context-path: /gateway
+
+#zuul配置
+zuul:
+  routes:
+    space-consumer:
+      path: /consumer/**
+      serviceId: space-consumer
+      stripPrefix: false
+    space-usercenter:
+      path: /usercenter/**
+      serviceId: space-usercenter
+      stripPrefix: false
+    space-console:
+      path: /console/**
+      serviceId: space-console
+      stripPrefix: false

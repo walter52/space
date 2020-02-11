@@ -1,4 +1,4 @@
-package com.walter.space.spaceconsumer;
+package com.walter.space.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;

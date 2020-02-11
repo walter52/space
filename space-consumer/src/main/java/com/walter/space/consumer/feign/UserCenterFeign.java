@@ -1,4 +1,4 @@
-package com.walter.space.spaceconsumer.feign;
+package com.walter.space.consumer.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
