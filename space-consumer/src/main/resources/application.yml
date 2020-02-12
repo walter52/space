@@ -17,7 +17,9 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
-#feing
+#feign
 feign:
   hystrix:
     enabled: true
+
+

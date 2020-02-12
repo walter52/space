@@ -6,13 +6,13 @@ spring:
   application:
     name: space-gateway
 
-#server属性(spring boot2.0属性名新增servlet)
-#server:
-#  servlet:
-#    context-path: /gateway
 
 #zuul配置
 zuul:
+  host:
+    #zuul的超时配置要大于ribbon
+    connect-timeout-millis: 15000
+    socket-timeout-millis: 60000
   routes:
     space-consumer:
       path: /consumer/**
@@ -26,3 +26,8 @@ zuul:
       path: /console/**
       serviceId: space-console
       stripPrefix: false
+
+#ribbon超时配置
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
