@@ -44,17 +44,22 @@ public class AccessFilter extends ZuulFilter {
             token = request.getHeader("token");
         }
 
-        if (StringUtils.isBlank(token)){
+        Boolean enableToken = true;
+        if (request.getRequestURL().toString().contains("/console")){
+            enableToken = false;
+        }
+
+        if (StringUtils.isNotBlank(token) || !enableToken){
+            log.info("access token is OK!");
+            ctx.setSendZuulResponse(true);
+            ctx.setResponseStatusCode(200);
+            ctx.set("isSuccess", true);
+        }else {
             log.warn("access token is empty!");
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
             ctx.setResponseBody("token is empty");
             ctx.set("isSuccess", false);
-        }else {
-            log.info("access token is OK!");
-            ctx.setSendZuulResponse(true);
-            ctx.setResponseStatusCode(200);
-            ctx.set("isSuccess", true);
         }
         return null;
     }
