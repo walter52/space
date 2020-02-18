@@ -50,6 +50,12 @@
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
+        <!--rabbit mq-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        </dependency>
+
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
