@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>space-usercenter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${parent.version}</version>
     <name>space-usercenter</name>
     <description>User Center for Space</description>
 
@@ -21,6 +21,12 @@
     </properties>
 
     <dependencies>
+        <!--space-->
+        <dependency>
+            <groupId>com.walter.space</groupId>
+            <artifactId>space-common</artifactId>
+        </dependency>
+
         <!--spring boot web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

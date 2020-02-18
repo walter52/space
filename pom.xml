@@ -16,6 +16,7 @@
         <module>space-eureka</module>
         <module>space-usercenter</module>
         <module>space-consumer</module>
+        <module>space-common</module>
     </modules>
 
     <properties>
@@ -35,6 +36,13 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <!--space-->
+            <dependency>
+                <groupId>com.walter.space</groupId>
+                <artifactId>space-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!--spring 相关-->
             <dependency>

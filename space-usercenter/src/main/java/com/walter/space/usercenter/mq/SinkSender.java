@@ -5,6 +5,7 @@ import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.MessageChannel;
 
 /**
+ *
  * @author walter
  * @date 2020/2/14 12:47 下午
  */

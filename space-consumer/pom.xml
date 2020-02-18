@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>space-consumer</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${parent.version}</version>
     <name>space-consumer</name>
     <description>Demo project for Spring Boot</description>
 
@@ -21,6 +21,12 @@
     </properties>
 
     <dependencies>
+        <!--space-->
+        <dependency>
+            <groupId>com.walter.space</groupId>
+            <artifactId>space-common</artifactId>
+        </dependency>
+
         <!--spring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

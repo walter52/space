@@ -17,3 +17,5 @@ spring:
     username: admin
     password: kgdiyniqmq
     virtual-host: space_vhost
+
+#springcloud stream
