@@ -24,4 +24,10 @@ public class AdminDaoTest extends BaseTest{
     log.info(adminEntity.getName());
   }
 
+  @Test
+  public void addTest(){
+    AdminEntity adminEntity = new AdminEntity();
+    int count = adminMapper.selectCount(adminEntity);
+  }
+
 }

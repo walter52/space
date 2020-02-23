@@ -2,6 +2,7 @@ package com.walter.space.console.dao.entity;
 
 import lombok.Data;
 
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -12,6 +13,7 @@ import java.util.Date;
  */
 
 @Data
+@Table(name = "space_console_admin")
 public class AdminEntity {
 
   /**

@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.*;
  * @date 2018/04/03
  */
 @Mapper
-public interface AdminMapper {
+public interface AdminMapper extends BaseMapper<AdminEntity>{
 
     /**
      * 根据email获取用户
