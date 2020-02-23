@@ -13,6 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class BaseTest {
-  protected final static Logger LOG = LoggerFactory.getLogger(BaseTest.class);
+  protected final static Logger log = LoggerFactory.getLogger(BaseTest.class);
 
 }
