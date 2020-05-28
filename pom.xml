@@ -5,7 +5,7 @@
 
     <groupId>com.walter.space</groupId>
     <artifactId>space</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>space</name>
@@ -21,6 +21,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--项目依赖-->
+        <revision>1.0-SNAPSHOT</revision>
+        <!--普通依赖-->
         <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
         <spring.cloud.version>Greenwich.SR5</spring.cloud.version>
         <junit.version>4.12</junit.version>
