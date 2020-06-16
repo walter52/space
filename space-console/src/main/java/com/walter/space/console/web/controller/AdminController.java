@@ -4,11 +4,15 @@ import com.walter.space.console.constants.Constants;
 import com.walter.space.console.service.AdminService;
 import com.walter.space.console.util.EncryptUtils;
 import com.walter.space.console.model.Admin;
-import com.walter.space.console.web.result.ResposeResult;
+import com.walter.space.console.web.result.RespResult;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author walterwu
@@ -16,7 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/admin")
-public class AdminController extends BaseController {
+@Slf4j
+public class AdminController {
 
   @Autowired
   private AdminService adminService;
@@ -29,25 +34,26 @@ public class AdminController extends BaseController {
    * @param isRemember 记住密码
    * @return 登录结果
    */
-  @RequestMapping("/login")
-  public ResposeResult login(String loginEmail, String loginPwd, boolean isRemember) {
+  @GetMapping("/login")
+  public RespResult login(HttpServletRequest request, String loginEmail, String loginPwd, boolean isRemember) {
 
     if (StringUtils.isBlank(loginEmail) || StringUtils.isBlank(loginPwd)) {
-      return ResposeResult.error("用户名或密码为空！");
+      return RespResult.error("用户名或密码为空！");
     }
     Admin admin = adminService.selectAdminByEmail(loginEmail);
     try {
       if (admin == null) {
-        return ResposeResult.error("账户不存在！");
+        return RespResult.error("账户不存在！");
       }
 
-      if (isRemember) {  //记住密码
+      //记住密码
+      if (isRemember) {
         if (!loginPwd.equals(admin.getPassword())) {
-          return ResposeResult.error("密码错误！");
+          return RespResult.error("密码错误！");
         }
       } else {
         if (!EncryptUtils.encrypt(loginPwd, EncryptUtils.EncryptType.MD5).equals(admin.getPassword())) {
-          return ResposeResult.error("密码错误！");
+          return RespResult.error("密码错误！");
         }
       }
 
@@ -55,25 +61,25 @@ public class AdminController extends BaseController {
       request.getSession().setAttribute(Constants.LOGIN_ADMIN_SESSION_KEY, admin);
 
     } catch (Exception e) {
-      LOG.error("系统异常,loginEmail:{},loginPwd:{}", loginEmail, loginPwd);
-      return ResposeResult.error("系统异常，请联系管理员");
+      log.error("系统异常,loginEmail:{},loginPwd:{}", loginEmail, loginPwd);
+      return RespResult.error("系统异常，请联系管理员");
     }
 
-    return ResposeResult.success(admin);
+    return RespResult.success(admin);
   }
 
   /**
    * 注销登录接口
    */
-  @RequestMapping("/logout")
-  public ResposeResult logout() {
+  @GetMapping("/logout")
+  public RespResult logout(HttpServletRequest request) {
     try {
       request.getSession().setAttribute(Constants.LOGIN_ADMIN_SESSION_KEY, null);
     } catch (Exception e) {
-      LOG.error("登出失败", e);
-      return ResposeResult.error("登出失败！");
+      log.error("登出失败", e);
+      return RespResult.error("登出失败！");
     }
-    return ResposeResult.success("登出成功！", request.getContextPath() + "/login.html");
+    return RespResult.success("登出成功！", request.getContextPath() + "/login.html");
   }
 
   /**
@@ -82,11 +88,11 @@ public class AdminController extends BaseController {
    * @param registerEmail 注册邮箱
    * @param registerPwd 注册密码
    */
-  @RequestMapping("/register")
-  public ResposeResult register(String registerName, String registerEmail, String registerPwd) {
+  @GetMapping("/register")
+  public RespResult register(String registerName, String registerEmail, String registerPwd) {
     if (StringUtils.isBlank(registerName) || StringUtils.isBlank(registerEmail) || StringUtils
         .isBlank(registerPwd)) {
-      return ResposeResult.error("注册信息不完整！");
+      return RespResult.error("注册信息不完整！");
     }
     return null;
   }

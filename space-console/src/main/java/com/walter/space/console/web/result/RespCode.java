@@ -6,7 +6,7 @@ package com.walter.space.console.web.result;
  * @author walterwu
  * @date 2018/04/09
  */
-public enum ResponseCode {
+public enum RespCode {
   /**
    * 成功
    */
@@ -31,7 +31,7 @@ public enum ResponseCode {
   private Integer code;
   private String msg;
 
-  ResponseCode(Integer code,String msg){
+  RespCode(Integer code, String msg){
     this.code = code;
     this.msg = msg;
   }
