@@ -9,9 +9,15 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Valid {
+public @interface ValidParam {
 
+    /**
+     * 参数效验对象
+     */
     Class<?>[] value() default {};
 
+    /**
+     * 效验分组
+     */
     Class<?>[] group() default {};
 }

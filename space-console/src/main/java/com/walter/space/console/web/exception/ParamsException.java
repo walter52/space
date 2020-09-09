@@ -6,9 +6,6 @@ package com.walter.space.console.web.exception;
  */
 public class ParamsException extends RuntimeException {
 
-  public ParamsException() {
-    super();
-  }
 
   public ParamsException(String message) {
     super(message);
