@@ -29,8 +29,3 @@ logging:
     #日志级别
     com.walter.space.console.dao: debug
 
-#eureka
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:1001/eurekaServer/eureka

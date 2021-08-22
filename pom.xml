@@ -13,9 +13,6 @@
 
     <modules>
         <module>space-console</module>
-        <module>space-eureka</module>
-        <module>space-usercenter</module>
-        <module>space-consumer</module>
         <module>space-common</module>
     </modules>
 
