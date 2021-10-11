@@ -21,11 +21,7 @@
 	</properties>
 
 	<dependencies>
-		<!--space-->
-		<dependency>
-			<groupId>com.walter.space</groupId>
-			<artifactId>space-common</artifactId>
-		</dependency>
+
 		<!--spring-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,6 +69,27 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
+		</dependency>
+
+		<!--lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<!--apache commons-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
 		</dependency>
 
 		<!--test-->
