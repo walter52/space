@@ -84,7 +84,7 @@ public class AdminController {
       log.error("登出失败", e);
       return RespResult.error("登出失败！");
     }
-    return RespResult.success("登出成功！", request.getContextPath() + "/login.html");
+    return RespResult.success("登出成功！");
   }
 
   /**
