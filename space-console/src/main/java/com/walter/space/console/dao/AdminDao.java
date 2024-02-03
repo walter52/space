@@ -14,7 +14,7 @@ public interface AdminDao {
    * @param email email
    * @return admin业务对象
    */
-  Admin selectAdminByEmail(String email);
+  Admin selectAdminByName(String email);
 
   /**
    * 添加新的用户

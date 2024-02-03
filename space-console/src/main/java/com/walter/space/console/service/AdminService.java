@@ -25,10 +25,10 @@ public class AdminService {
   /**
    * 根据email获取用户
    *
-   * @param email email
+   * @param name name
    * @return admin业务对象
    */
-  public Admin selectAdminByEmail(String email) {
-    return adminDao.selectAdminByEmail(email);
+  public Admin selectAdminByName(String name) {
+    return adminDao.selectAdminByName(name);
   }
 }

@@ -18,8 +18,8 @@ public class AdminDaoImpl implements AdminDao {
   private AdminMapper adminMapper;
 
   @Override
-  public Admin selectAdminByEmail(String email) {
-    return entityToModel(adminMapper.selectAdminByEmail(email));
+  public Admin selectAdminByName(String name) {
+    return entityToModel(adminMapper.selectAdminByName(name));
   }
 
   @Override

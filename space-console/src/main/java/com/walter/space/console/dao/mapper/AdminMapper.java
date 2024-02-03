@@ -14,11 +14,11 @@ public interface AdminMapper extends BaseMapper<AdminEntity>{
     /**
      * 根据email获取用户
      *
-     * @param email email
+     * @param name name
      * @return admin数据库实例
      */
-    @Select("SELECT * FROM space_console_admin WHERE email=#{email};")
-    AdminEntity selectAdminByEmail(@Param("email") String email);
+    @Select("SELECT * FROM space_console_admin WHERE name=#{name};")
+    AdminEntity selectAdminByName(@Param("name") String name);
 
     /**
      * 添加新的管理员

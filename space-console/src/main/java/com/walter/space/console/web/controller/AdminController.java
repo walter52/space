@@ -1,12 +1,14 @@
 package com.walter.space.console.web.controller;
 
 import com.walter.space.console.constants.Constants;
+import com.walter.space.console.model.AdminResp;
 import com.walter.space.console.service.AdminService;
 import com.walter.space.console.util.EncryptUtils;
 import com.walter.space.console.model.Admin;
 import com.walter.space.console.web.result.RespResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,18 +31,19 @@ public class AdminController {
   /**
    * 登录接口
    *
-   * @param loginEmail 登录邮箱
+   * @param loginName 登录邮箱
    * @param loginPwd 登录密码
    * @param isRemember 记住密码
    * @return 登录结果
    */
   @GetMapping("/login")
-  public RespResult login(HttpServletRequest request, String loginEmail, String loginPwd, boolean isRemember) {
+  public RespResult login(HttpServletRequest request, String loginName, String loginPwd, boolean isRemember) {
 
-    if (StringUtils.isBlank(loginEmail) || StringUtils.isBlank(loginPwd)) {
+    if (StringUtils.isBlank(loginName) || StringUtils.isBlank(loginPwd)) {
       return RespResult.error("用户名或密码为空！");
     }
-    Admin admin = adminService.selectAdminByEmail(loginEmail);
+    Admin admin = adminService.selectAdminByName(loginName);
+    AdminResp adminresp = new AdminResp();
     try {
       if (admin == null) {
         return RespResult.error("账户不存在！");
@@ -57,15 +60,17 @@ public class AdminController {
         }
       }
 
+      BeanUtils.copyProperties(admin,adminresp);
+
       //登录成功
-      request.getSession().setAttribute(Constants.LOGIN_ADMIN_SESSION_KEY, admin);
+      request.getSession().setAttribute(Constants.LOGIN_ADMIN_SESSION_KEY, adminresp);
 
     } catch (Exception e) {
-      log.error("系统异常,loginEmail:{},loginPwd:{}", loginEmail, loginPwd);
+      log.error("系统异常,loginEmail:{},loginPwd:{}", loginName, loginPwd);
       return RespResult.error("系统异常，请联系管理员");
     }
 
-    return RespResult.success(admin);
+    return RespResult.success(adminresp);
   }
 
   /**
@@ -96,5 +101,11 @@ public class AdminController {
     }
     return null;
   }
+
+   @GetMapping("/check")
+  public RespResult check() {
+    return RespResult.success(true);
+  }
+
 
 }

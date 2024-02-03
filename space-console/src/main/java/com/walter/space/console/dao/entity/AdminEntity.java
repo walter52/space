@@ -41,6 +41,11 @@ public class AdminEntity {
    */
   private String remark;
 
+    /**
+   * 角色类型 1:管理员
+   */
+    private String roleCode;
+
   /**
    * 创建人
    */

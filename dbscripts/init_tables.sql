@@ -13,5 +13,5 @@ CREATE TABLE `space_console_admin` (
   `last_changed_on` datetime DEFAULT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unq_console_admin_email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='space控制台系统管理员表';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='控制台系统管理员表';
 

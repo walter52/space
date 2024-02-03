@@ -2,6 +2,8 @@ package com.walter.space.console.web.filter;
 
 import com.walter.space.console.constants.Constants;
 import com.walter.space.console.model.Admin;
+import com.walter.space.console.model.AdminResp;
+import com.walter.space.console.web.exception.SignFailException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -38,25 +40,13 @@ public class LoginFilter implements Filter {
             || uri.contains("/admin/login")) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            Admin loginAdmin =
-                (Admin) httpServletRequest.getSession().getAttribute(Constants.LOGIN_ADMIN_SESSION_KEY);
+            AdminResp loginAdmin =
+                (AdminResp) httpServletRequest.getSession().getAttribute(Constants.LOGIN_ADMIN_SESSION_KEY);
             //已登录
             if (loginAdmin != null) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-                String loginUrl = httpServletRequest.getContextPath() + "/login.html";
-                // 处理Ajax请求
-                if (httpServletRequest.getHeader("x-requested-with") != null
-                    && "XMLHttpRequest".equalsIgnoreCase(httpServletRequest.getHeader("x-requested-with"))) {
-                    // 向HTTP头添加会话状态sessionStatus
-                    httpServletResponse.setHeader("sessionStatus", "timeout");
-                    httpServletResponse.setStatus(403);
-                    //向HTTP头添加登录的URL
-                    httpServletResponse.addHeader("loginUrl", loginUrl);
-                    LOG.debug("拦截Ajax请求");
-                } else {
-                    httpServletResponse.sendRedirect(loginUrl);
-                }
+               throw new SignFailException("请登录");
             }
         }
     }
