@@ -104,7 +104,7 @@ public class AdminController {
 
    @GetMapping("/check")
   public RespResult check() {
-    return RespResult.success(true);
+    return RespResult.success("OK");
   }
 
 
