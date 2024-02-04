@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     #数据库配置(必配)
-    url: jdbc:mysql://127.0.0.1:3306/space?useUnicode=true&autoReconnect=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    url: jdbc:mysql://mid_mysql:3306/space?useUnicode=true&autoReconnect=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
